@@ -21,14 +21,14 @@
     </ion-content>
     <ion-footer>
       <ion-button routerLink="/" color="primary" queryParamsHandling="preserve" fill="clear">
-        {{ 'landing.try' | transloco }}
+        {{ 'landing.home.title' | transloco }}
       </ion-button>
     </ion-footer>
   </ion-menu>
 }
 
 <ion-header [translucent]="true">
-  <app-announcement-banner />
+  <!-- <app-announcement-banner /> -->
   <ion-toolbar>
     @if (isMobile.matches) {
       <ion-buttons slot="start">
@@ -41,16 +41,8 @@
     @if (!isMobile.matches) {
       <ion-buttons slot="primary">
         <ion-button routerLink="/" queryParamsHandling="preserve" color="primary" shape="round" fill="solid">
-          {{ 'landing.try' | transloco }}
-          <ion-icon slot="end" name="arrow-forward" />
+          {{ 'landing.home.title' | transloco }}
         </ion-button>
-      </ion-buttons>
-      <ion-buttons slot="secondary">
-        @for (page of pages; track page.key) {
-          <ion-button [routerLink]="page.route" queryParamsHandling="preserve" fill="solid" color="light" shape="round">
-            {{ 'landing.' + page.key + '.title' | transloco }}
-          </ion-button>
-        }
       </ion-buttons>
     }
   </ion-toolbar>

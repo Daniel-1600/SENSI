@@ -38,7 +38,9 @@ export class LanguageSelectorComponent extends BaseComponent implements OnInit, 
 
   @Input() flags = false;
   @Input() hasLanguageDetection = false;
+  @Input() hideMenu = false;
   @Input() languages: string[];
+  @Input() labelOverrides: {[lang: string]: string} = {};
   @Input() translationKey: string;
 
   @Input() language: string | null;
@@ -58,7 +60,17 @@ export class LanguageSelectorComponent extends BaseComponent implements OnInit, 
     addIcons({chevronDown});
   }
 
+  private get isAslOnlySelector(): boolean {
+    return this.languages?.length === 1 && this.languages[0] === 'ase';
+  }
+
   ngOnInit(): void {
+    if (this.isAslOnlySelector) {
+      this.flags = false;
+      this.hideMenu = true;
+      this.labelOverrides = {...this.labelOverrides, ase: 'ASL'};
+    }
+
     if (!this.language) {
       this.selectLanguage(this.languages[0]);
     }
@@ -115,7 +127,7 @@ export class LanguageSelectorComponent extends BaseComponent implements OnInit, 
     }
 
     for (const lang of this.languages) {
-      this.langNames[lang] = this.langName(lang);
+      this.langNames[lang] = this.labelOverrides?.[lang] ?? this.langName(lang);
     }
   }
 

@@ -1,24 +1,35 @@
 :host {
   display: flex;
-  align-items: end;
+  align-items: center;
   font-size: 1.2em;
-  gap: 8px;
 }
 
 a {
   display: flex;
-  align-items: end;
+  align-items: center;
+  gap: 0.5rem;
   color: unset;
   text-decoration: none;
 }
 
-img {
-  height: 1em;
-  display: block;
+.brand-mark {
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  border: 2px solid var(--ion-color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ion-color-primary);
 }
 
-.nagish-logo {
-  img {
-    height: 1em;
-  }
+.brand-mark-inner {
+  font-weight: 800;
+  font-size: 0.75em;
+  line-height: 1;
+}
+
+.brand-text {
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }

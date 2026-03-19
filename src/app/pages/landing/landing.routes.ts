@@ -12,11 +12,11 @@ export const routes: Routes = [
     component: LandingComponent,
     children: [
       {path: '', component: AboutComponent},
-      {path: 'about', redirectTo: ''},
-      {path: 'contribute', component: ContributeComponent},
-      {path: 'terms', component: TermsComponent},
-      {path: 'privacy', component: PrivacyComponent},
-      {path: 'licenses', component: LicensesComponent},
+      // {path: 'about', redirectTo: ''},
+      // {path: 'contribute', component: ContributeComponent},
+      // {path: 'terms', component: TermsComponent},
+      // {path: 'privacy', component: PrivacyComponent},
+      // {path: 'licenses', component: LicensesComponent},
     ],
   },
 ];
