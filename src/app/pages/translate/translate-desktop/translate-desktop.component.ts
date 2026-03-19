@@ -47,11 +47,6 @@ export class TranslateDesktopComponent extends BaseComponent implements OnInit {
   private store = inject(Store);
   spokenToSigned$ = this.store.select<boolean>(state => state.translate.spokenToSigned);
 
-  pages = [
-    {key: 'home', route: '/'},
-    {key: 'contribute', route: '/about/contribute'},
-  ];
-
   spokenToSigned: boolean;
 
   constructor() {

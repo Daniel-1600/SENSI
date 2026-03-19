@@ -8,14 +8,5 @@
 }
 
 app-language-selector {
-  width: calc(50% - 24px);
-}
-
-#swap-languages {
-  height: 48px;
-  margin: 0;
-
-  &[disabled] {
-    opacity: 0.5;
-  }
+  width: 50%;
 }

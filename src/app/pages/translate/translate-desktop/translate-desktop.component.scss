@@ -9,13 +9,8 @@
 // Header background with gradient fade
 @media #{breakpoints.$breakpoint-gt-xs} {
   .container::before {
-    background: linear-gradient(
-      135deg,
-      var(--app-tinted-background-color) 0%,
-      rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.08) 50%,
-      transparent 100%
-    );
-    border-bottom: 1px solid rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.2);
+    background: transparent;
+    border-bottom: 1px solid var(--app-divider-color);
     content: '';
     display: block;
     height: 106px;
@@ -58,81 +53,82 @@
     @media #{breakpoints.$breakpoint-lt-sm} {
       display: none;
     }
+
+    .heading-strip {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border: 1px solid var(--app-divider-color);
+      background: #ffffff;
+      border-radius: md3.$md3-radius;
+    }
+
+    .heading-strip-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--ion-text-color);
+      letter-spacing: 0.02em;
+    }
+
+    .heading-strip-title--accent {
+      color: var(--ion-color-primary);
+    }
   }
 
   // Translation card with Material Design 3 styling
   #translation-card {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    background: #ffffff;
     width: 100%;
     height: 100%;
-    box-shadow:
-      md3.$md3-elevation-1,
-      0 0 0 1px rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.1);
-    transition:
-      box-shadow md3.$md3-duration-medium2 md3.$md3-easing-standard,
-      transform md3.$md3-duration-medium2 md3.$md3-easing-standard;
+    box-shadow: none;
+    transition: none;
     @include anim.animate-scale-in(md3.$md3-duration-medium2, 0.1s);
     position: relative;
     overflow: hidden;
 
     // Animated top gradient bar
     &::before {
-      content: '';
+      content: none;
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(
-        90deg,
-        rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.9) 0%,
-        rgba(var(--ion-color-secondary-rgb, 156, 39, 176), 0.7) 25%,
-        rgba(var(--ion-color-tertiary-rgb, 255, 193, 7), 0.9) 50%,
-        rgba(var(--ion-color-secondary-rgb, 156, 39, 176), 0.7) 75%,
-        rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.9) 100%
-      );
-      background-size: 200% 100%;
-      animation: gradientShift 3s ease-in-out infinite;
+      background: transparent;
       z-index: 10;
-      box-shadow: 0 2px 8px rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.3);
+      box-shadow: none;
     }
 
     // Radial gradient glow effect on hover
     &::after {
-      content: '';
+      content: none;
       position: absolute;
       top: -50%;
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(
-        circle,
-        rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.15) 0%,
-        rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.05) 30%,
-        transparent 70%
-      );
+      background: transparent;
       opacity: 0;
-      transition: opacity md3.$md3-duration-medium4 md3.$md3-easing-standard;
+      transition: none;
       pointer-events: none;
     }
 
     @media (prefers-color-scheme: dark) {
-      background: linear-gradient(135deg, #1c1b1f 0%, #2d2c31 100%);
+      background: #ffffff;
     }
 
     @media #{breakpoints.$breakpoint-gt-xs} {
-      box-shadow:
-        md3.$md3-elevation-2,
-        0 0 0 1px rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.15);
+      box-shadow: none;
 
       &:hover {
-        box-shadow:
-          md3.$md3-elevation-3,
-          0 0 24px rgba(var(--ion-color-primary-rgb, 66, 133, 244), 0.3);
-        transform: translateY(-4px);
+        box-shadow: none;
+        transform: none;
 
         &::after {
-          opacity: 1;
+          opacity: 0;
         }
       }
     }
@@ -201,7 +197,7 @@ ntkme-github-button {
     color: rgba(0, 0, 0, 0.7);
 
     @media (prefers-color-scheme: dark) {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(0, 0, 0, 0.7);
     }
   }
 

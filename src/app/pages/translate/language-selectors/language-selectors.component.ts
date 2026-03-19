@@ -1,16 +1,10 @@
 import {Component, HostBinding, inject, OnInit} from '@angular/core';
-import {
-  FlipTranslationDirection,
-  SetSignedLanguage,
-  SetSpokenLanguage,
-} from '../../../modules/translate/translate.actions';
+import {SetSignedLanguage, SetSpokenLanguage} from '../../../modules/translate/translate.actions';
 import {Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {TranslationService} from '../../../modules/translate/translate.service';
 import {BaseComponent} from '../../../components/base/base.component';
 import {takeUntil, tap} from 'rxjs/operators';
-import {addIcons} from 'ionicons';
-import {swapHorizontal} from 'ionicons/icons';
 import {
   IonBackButton,
   IonButton,
@@ -39,6 +33,8 @@ import {NgxFilesizeModule} from 'ngx-filesize';
 export class LanguageSelectorsComponent extends BaseComponent implements OnInit {
   private store = inject(Store);
   translation = inject(TranslationService);
+  readonly aslOnlyLanguages = ['ase'];
+  readonly aslLabelOverrides = {ase: 'ASL'};
 
   spokenToSigned$: Observable<boolean>;
   spokenLanguage$: Observable<string>;
@@ -53,8 +49,6 @@ export class LanguageSelectorsComponent extends BaseComponent implements OnInit 
     this.spokenLanguage$ = this.store.select<string>(state => state.translate.spokenLanguage);
     this.signedLanguage$ = this.store.select<string>(state => state.translate.signedLanguage);
     this.detectedLanguage$ = this.store.select<string>(state => state.translate.detectedLanguage);
-
-    addIcons({swapHorizontal});
   }
 
   ngOnInit() {
@@ -74,9 +68,5 @@ export class LanguageSelectorsComponent extends BaseComponent implements OnInit 
 
   setSpokenLanguage(lang: string): void {
     this.store.dispatch(new SetSpokenLanguage(lang));
-  }
-
-  swapLanguages(): void {
-    this.store.dispatch(FlipTranslationDirection);
   }
 }
